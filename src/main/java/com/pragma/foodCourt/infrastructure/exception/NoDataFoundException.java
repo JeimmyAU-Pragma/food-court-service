@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.exception;
+package com.pragma.foodcourt.infrastructure.exception;
 
 public class NoDataFoundException extends RuntimeException {
     public NoDataFoundException(String restauranteNoEncontrado) {

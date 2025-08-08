@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.exceptionhandler;
+package com.pragma.foodcourt.infrastructure.exceptionhandler;
 
 public enum ExceptionResponse {
     NO_DATA_FOUND("No data found for the requested petition");

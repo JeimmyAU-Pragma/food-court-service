@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.application.dto.response;
+package com.pragma.foodcourt.application.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;

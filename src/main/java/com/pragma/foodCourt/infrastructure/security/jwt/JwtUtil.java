@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.security.jwt;
+package com.pragma.foodcourt.infrastructure.security.jwt;
 
 import io.jsonwebtoken.JwtException;
 

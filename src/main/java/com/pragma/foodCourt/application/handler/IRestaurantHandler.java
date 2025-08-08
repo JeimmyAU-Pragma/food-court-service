@@ -1,7 +1,7 @@
-package com.pragma.foodCourt.application.handler;
+package com.pragma.foodcourt.application.handler;
 
-import com.pragma.foodCourt.application.dto.request.RestaurantRequestDto;
-import com.pragma.foodCourt.application.dto.response.RestaurantResponseDto;
+import com.pragma.foodcourt.application.dto.request.RestaurantRequestDto;
+import com.pragma.foodcourt.application.dto.response.RestaurantResponseDto;
 
 import java.util.List;
 

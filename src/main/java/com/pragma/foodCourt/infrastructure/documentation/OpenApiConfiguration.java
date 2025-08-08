@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.documentation;
+package com.pragma.foodcourt.infrastructure.documentation;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -1,8 +1,8 @@
-package com.pragma.foodCourt.infrastructure.input.rest;
+package com.pragma.foodcourt.infrastructure.input.rest;
 
-import com.pragma.foodCourt.application.dto.request.RestaurantRequestDto;
-import com.pragma.foodCourt.application.dto.response.RestaurantResponseDto;
-import com.pragma.foodCourt.application.handler.IRestaurantHandler;
+import com.pragma.foodcourt.application.dto.request.RestaurantRequestDto;
+import com.pragma.foodcourt.application.dto.response.RestaurantResponseDto;
+import com.pragma.foodcourt.application.handler.IRestaurantHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

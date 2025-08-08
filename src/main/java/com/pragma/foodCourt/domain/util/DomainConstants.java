@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.domain.util;
+package com.pragma.foodcourt.domain.util;
 
 public class DomainConstants {
     public static final String ROLE_ADMIN = "ADMINISTRADOR";

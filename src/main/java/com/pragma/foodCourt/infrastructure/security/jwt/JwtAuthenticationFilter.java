@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.security.jwt;
+package com.pragma.foodcourt.infrastructure.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
@@ -15,8 +15,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.List;
 
-import static com.pragma.foodCourt.infrastructure.security.jwt.SecurityConstants.AUTH_HEADER;
-import static com.pragma.foodCourt.infrastructure.security.jwt.SecurityConstants.TOKEN_PREFIX;
+import static com.pragma.foodcourt.infrastructure.security.jwt.SecurityConstants.AUTH_HEADER;
+import static com.pragma.foodcourt.infrastructure.security.jwt.SecurityConstants.TOKEN_PREFIX;
 
 
 @Component

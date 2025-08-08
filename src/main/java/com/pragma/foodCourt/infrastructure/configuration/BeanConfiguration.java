@@ -1,14 +1,14 @@
-package com.pragma.foodCourt.infrastructure.configuration;
+package com.pragma.foodcourt.infrastructure.configuration;
 
-import com.pragma.foodCourt.domain.api.IRestaurantServicePort;
-import com.pragma.foodCourt.domain.spi.IRestaurantPersistencePort;
-import com.pragma.foodCourt.domain.spi.IUserFeignPort;
-import com.pragma.foodCourt.domain.usecase.RestaurantUseCase;
-import com.pragma.foodCourt.infrastructure.out.adapter.UserFeignAdapter;
-import com.pragma.foodCourt.infrastructure.out.feignclient.UserClient;
-import com.pragma.foodCourt.infrastructure.out.jpa.adapter.RestaurantJpaAdapter;
-import com.pragma.foodCourt.infrastructure.out.jpa.mapper.IRestaurantEntityMapper;
-import com.pragma.foodCourt.infrastructure.out.jpa.repository.IRestaurantRepository;
+import com.pragma.foodcourt.domain.api.IRestaurantServicePort;
+import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
+import com.pragma.foodcourt.domain.spi.IUserFeignPort;
+import com.pragma.foodcourt.domain.usecase.RestaurantUseCase;
+import com.pragma.foodcourt.infrastructure.out.adapter.UserFeignAdapter;
+import com.pragma.foodcourt.infrastructure.out.feignclient.UserClient;
+import com.pragma.foodcourt.infrastructure.out.jpa.adapter.RestaurantJpaAdapter;
+import com.pragma.foodcourt.infrastructure.out.jpa.mapper.IRestaurantEntityMapper;
+import com.pragma.foodcourt.infrastructure.out.jpa.repository.IRestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

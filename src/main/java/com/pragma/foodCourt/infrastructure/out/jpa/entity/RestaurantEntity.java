@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.out.jpa.entity;
+package com.pragma.foodcourt.infrastructure.out.jpa.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,8 +1,8 @@
-package com.pragma.foodCourt.infrastructure.out.adapter;
+package com.pragma.foodcourt.infrastructure.out.adapter;
 
-import com.pragma.foodCourt.application.dto.external.UserResponseDto;
-import com.pragma.foodCourt.domain.spi.IUserFeignPort;
-import com.pragma.foodCourt.infrastructure.out.feignclient.UserClient;
+import com.pragma.foodcourt.application.dto.external.UserResponseDto;
+import com.pragma.foodcourt.domain.spi.IUserFeignPort;
+import com.pragma.foodcourt.infrastructure.out.feignclient.UserClient;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
