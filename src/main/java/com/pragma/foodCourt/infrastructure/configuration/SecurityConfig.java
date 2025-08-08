@@ -1,6 +1,6 @@
-package com.pragma.foodCourt.infrastructure.configuration;
+package com.pragma.foodcourt.infrastructure.configuration;
 
-import com.pragma.foodCourt.infrastructure.security.jwt.JwtAuthenticationFilter;
+import com.pragma.foodcourt.infrastructure.security.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

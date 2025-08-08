@@ -1,7 +1,7 @@
-package com.pragma.foodCourt.infrastructure.out.feignclient;
+package com.pragma.foodcourt.infrastructure.out.feignclient;
 
-import com.pragma.foodCourt.application.dto.external.UserResponseDto;
-import com.pragma.foodCourt.infrastructure.configuration.FeignClientConfig;
+import com.pragma.foodcourt.application.dto.external.UserResponseDto;
+import com.pragma.foodcourt.infrastructure.configuration.FeignClientConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

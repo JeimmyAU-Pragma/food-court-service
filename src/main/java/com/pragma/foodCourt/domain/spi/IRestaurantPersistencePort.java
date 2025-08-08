@@ -1,7 +1,7 @@
-package com.pragma.foodCourt.domain.spi;
+package com.pragma.foodcourt.domain.spi;
 
 
-import com.pragma.foodCourt.domain.model.Restaurant;
+import com.pragma.foodcourt.domain.model.Restaurant;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package com.pragma.foodCourt.infrastructure.exceptionhandler;
+package com.pragma.foodcourt.infrastructure.exceptionhandler;
 
-import com.pragma.foodCourt.infrastructure.exception.NoDataFoundException;
+import com.pragma.foodcourt.infrastructure.exception.NoDataFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

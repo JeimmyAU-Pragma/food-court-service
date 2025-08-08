@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.domain.model;
+package com.pragma.foodcourt.domain.model;
 
 
 public class Restaurant {

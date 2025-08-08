@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.security.jwt;
+package com.pragma.foodcourt.infrastructure.security.jwt;
 
 
 
@@ -7,5 +7,4 @@ public class SecurityConstants {
     public static final String TOKEN_PREFIX = "Bearer ";
 
 
-    //public static final Long EXPIRATION_TIME_MS = 3600000L;
 }

@@ -1,16 +1,16 @@
-package com.pragma.foodCourt.domain.usecase;
+package com.pragma.foodcourt.domain.usecase;
 
-import com.pragma.foodCourt.application.dto.external.UserResponseDto;
-import com.pragma.foodCourt.domain.api.IRestaurantServicePort;
-import com.pragma.foodCourt.domain.exception.DomainException;
-import com.pragma.foodCourt.domain.model.Restaurant;
-import com.pragma.foodCourt.domain.spi.IRestaurantPersistencePort;
-import com.pragma.foodCourt.domain.spi.IUserFeignPort;
+import com.pragma.foodcourt.application.dto.external.UserResponseDto;
+import com.pragma.foodcourt.domain.api.IRestaurantServicePort;
+import com.pragma.foodcourt.domain.exception.DomainException;
+import com.pragma.foodcourt.domain.model.Restaurant;
+import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
+import com.pragma.foodcourt.domain.spi.IUserFeignPort;
 
 import java.util.List;
 import java.util.Optional;
 // Constants
-import static com.pragma.foodCourt.domain.util.DomainConstants.*;
+import static com.pragma.foodcourt.domain.util.DomainConstants.*;
 
 
 public class RestaurantUseCase implements IRestaurantServicePort {

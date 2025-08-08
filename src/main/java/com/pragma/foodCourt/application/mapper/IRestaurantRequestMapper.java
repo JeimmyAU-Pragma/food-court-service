@@ -1,7 +1,7 @@
-package com.pragma.foodCourt.application.mapper;
+package com.pragma.foodcourt.application.mapper;
 
-import com.pragma.foodCourt.application.dto.request.RestaurantRequestDto;
-import com.pragma.foodCourt.domain.model.Restaurant;
+import com.pragma.foodcourt.application.dto.request.RestaurantRequestDto;
+import com.pragma.foodcourt.domain.model.Restaurant;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

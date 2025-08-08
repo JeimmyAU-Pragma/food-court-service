@@ -1,4 +1,4 @@
-package com.pragma.foodCourt.infrastructure.configuration;
+package com.pragma.foodcourt.infrastructure.configuration;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

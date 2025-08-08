@@ -1,11 +1,11 @@
-package com.pragma.foodCourt.infrastructure.out.jpa.adapter;
+package com.pragma.foodcourt.infrastructure.out.jpa.adapter;
 
-import com.pragma.foodCourt.domain.model.Restaurant;
-import com.pragma.foodCourt.domain.spi.IRestaurantPersistencePort;
-import com.pragma.foodCourt.infrastructure.exception.NoDataFoundException;
-import com.pragma.foodCourt.infrastructure.out.jpa.entity.RestaurantEntity;
-import com.pragma.foodCourt.infrastructure.out.jpa.mapper.IRestaurantEntityMapper;
-import com.pragma.foodCourt.infrastructure.out.jpa.repository.IRestaurantRepository;
+import com.pragma.foodcourt.domain.model.Restaurant;
+import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
+import com.pragma.foodcourt.infrastructure.exception.NoDataFoundException;
+import com.pragma.foodcourt.infrastructure.out.jpa.entity.RestaurantEntity;
+import com.pragma.foodcourt.infrastructure.out.jpa.mapper.IRestaurantEntityMapper;
+import com.pragma.foodcourt.infrastructure.out.jpa.repository.IRestaurantRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
