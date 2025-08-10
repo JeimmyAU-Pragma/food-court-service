@@ -1,5 +1,8 @@
 package com.pragma.foodcourt.domain.util;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class DomainConstants {
     public static final String ROLE_ADMIN = "ADMINISTRADOR";
     public static final String ROLE_OWNER = "PROPIETARIO";

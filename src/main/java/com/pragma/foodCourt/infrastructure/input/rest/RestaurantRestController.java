@@ -47,17 +47,17 @@ public class RestaurantRestController {
     }
 
 
-    @Operation(summary = "Validate Owner of Restaurant")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "All objects returned",
-                    content = @Content(mediaType = "application/json",
-                            array = @ArraySchema(schema = @Schema(implementation = RestaurantResponseDto.class)))),
-            @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
-    })
-    @GetMapping("/{idRestaurant}/owner/{idOwner}")
-    public ResponseEntity<Boolean> isOwner(@PathVariable Long idRestaurant, @PathVariable Long idOwner) {
-        return ResponseEntity.ok(restaurantHandler.isOwner(idRestaurant,idOwner));
-    }
+//    @Operation(summary = "Validate Owner of Restaurant")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "All objects returned",
+//                    content = @Content(mediaType = "application/json",
+//                            array = @ArraySchema(schema = @Schema(implementation = RestaurantResponseDto.class)))),
+//            @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
+//    })
+//    @GetMapping("/{idRestaurant}/owner/{idOwner}")
+//    public ResponseEntity<Boolean> isOwner(@PathVariable Long idRestaurant, @PathVariable Long idOwner) {
+//        return ResponseEntity.ok(restaurantHandler.isOwner(idRestaurant,idOwner));
+//    }
 
     @DeleteMapping("/{idRestaurant} ")
     public ResponseEntity<Void> deleteRestaurant(@PathVariable Long idRestaurant) {

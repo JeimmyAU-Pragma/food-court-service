@@ -1,21 +1,22 @@
 package com.pragma.foodcourt.application.dto.external;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserResponseDto {
-    private Long userId;
+    private Long id;
     private String firstName;
     private String lastName;
-    private String rol;
+    private RoleDto role;
 
-    public UserResponseDto(Long userId, String firstName, String lastName, String rol) {
-        this.userId = userId;
+    public UserResponseDto(Long id, String firstName, String lastName, RoleDto role) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.rol = rol;
+        this.role = role;
     }
-
 }

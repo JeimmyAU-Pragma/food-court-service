@@ -11,9 +11,11 @@ public interface IRestaurantPersistencePort {
 
     List<Restaurant> getAllRestaurants();
 
-    boolean isOwner(Long idRestaurant, Long idOwner);
+    // boolean isOwner(Long idRestaurant, Long idOwner);
 
     void deleteRestaurant(Long idRestaurant);
 
-    Optional<Restaurant> getRestaurantById(Long idRestaurant);
+    Optional<Restaurant> findById(Long id);
+
+    // Optional<Restaurant> getRestaurantById(Long idRestaurant);
 }

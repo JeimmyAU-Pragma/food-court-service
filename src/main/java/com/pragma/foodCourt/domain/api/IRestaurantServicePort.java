@@ -11,9 +11,9 @@ public interface IRestaurantServicePort {
 
     List<Restaurant> getAllRestaurants();
 
-    Optional<Restaurant> getRestaurantById(Long idRestaurant);
+    Optional<Restaurant> getRestaurantById(Long id);
 
-    boolean isOwner(Long idRestaurant, Long idOwner);
+    //boolean isOwner(Long idRestaurant, Long idOwner);
 
     void deleteRestaurant(Long id);
 }

@@ -22,12 +22,12 @@ public class RestaurantEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRestaurant;
+    private Long id;
 
     @Column(length = 100)
     private String name;
     private String nit;
-    private String adress;
+    private String address;
     private String phoneNumber;
     private String urlLogo;
     //@Column(name = "owner_id", nullable = false)

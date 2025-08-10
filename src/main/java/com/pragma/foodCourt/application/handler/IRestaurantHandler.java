@@ -11,7 +11,5 @@ public interface IRestaurantHandler {
 
     List<RestaurantResponseDto> getAllRestaurants();
 
-    boolean isOwner(Long idRestaurant, Long idOwner);
-
     void deleteRestaurant(Long idRestaurant);
 }

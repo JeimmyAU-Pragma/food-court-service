@@ -35,19 +35,19 @@ public class RestaurantHandler implements IRestaurantHandler {
         return restaurantResponseMapper.toResponseList(restaurantServicePort.getAllRestaurants());
     }
 
-    @Override
-    public boolean isOwner(Long idRestaurant, Long idOwner) {
-        boolean result;
-        result = restaurantServicePort.isOwner(idRestaurant, idOwner);
-        return result;
-    }
+//    @Override
+//    public boolean isOwner(Long idRestaurant, Long idOwner) {
+//        boolean result;
+//        result = restaurantServicePort.isOwner(idRestaurant, idOwner);
+//        return result;
+//    }
 
 
     @Override
     public void deleteRestaurant(Long idRestaurant) {
         Optional<Restaurant> optionalRestaurant = restaurantServicePort.getRestaurantById(idRestaurant);
         if (!optionalRestaurant.isPresent()) {
-            throw new NoDataFoundException("Restaurante no encontrado");
+            throw new NoDataFoundException();
         }
         restaurantServicePort.deleteRestaurant(idRestaurant);
     }
