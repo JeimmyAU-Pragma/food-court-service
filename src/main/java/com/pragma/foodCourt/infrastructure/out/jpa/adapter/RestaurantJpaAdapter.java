@@ -27,14 +27,14 @@ public class RestaurantJpaAdapter implements IRestaurantPersistencePort {
     public List<Restaurant> getAllRestaurants() {
             List<RestaurantEntity> entityList = restaurantRepository.findAll();
             if (entityList.isEmpty()) {
-                throw new NoDataFoundException("Restaurante no encontrado");
+                throw new NoDataFoundException();
             }
             return restaurantEntityMapper.toRestaurantList(entityList);
     }
-    @Override
+   /* @Override
     public boolean isOwner(Long idRestaurant, Long idOwner) {
         return restaurantRepository.existsByIdRestaurantAndIdOwner(idRestaurant, idOwner);
-    }
+    }**/
 
     @Override
     public void deleteRestaurant(Long idRestaurant) {
@@ -42,7 +42,7 @@ public class RestaurantJpaAdapter implements IRestaurantPersistencePort {
     }
 
     @Override
-    public Optional<Restaurant> getRestaurantById(Long idRestaurant) {
-        return restaurantRepository.getByIdRestaurant(idRestaurant);//.map(restaurantEntityMapper::toRestaurant);
+    public Optional<Restaurant> findById(Long id) {
+        return restaurantRepository.findById(id).map(restaurantEntityMapper::toRestaurant);
     }
 }

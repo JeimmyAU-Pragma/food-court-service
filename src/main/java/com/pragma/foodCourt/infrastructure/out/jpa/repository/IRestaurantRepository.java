@@ -8,7 +8,7 @@ import java.util.Optional;
 
 
 public interface IRestaurantRepository extends JpaRepository<RestaurantEntity, Long> {
-    boolean existsByIdRestaurantAndIdOwner(Long idRestaurant, Long idOwner);
-
-    Optional<Restaurant> getByIdRestaurant(Long idRestaurant);
+   // boolean existsByIdRestaurantAndIdOwner(Long idRestaurant, Long idOwner);
+    Optional<RestaurantEntity> findById(Long id);
+    //Optional<Restaurant> getByIdRestaurant(Long idRestaurant);
 }

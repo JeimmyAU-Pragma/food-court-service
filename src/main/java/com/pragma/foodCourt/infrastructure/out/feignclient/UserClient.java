@@ -15,6 +15,6 @@ public interface UserClient {
     @GetMapping("/api/v1/user/{id}")
     UserResponseDto getUserById(@PathVariable("id") Long id);
 
-    @GetMapping("/api/v1/user/me")
+    @GetMapping("/auth/me")
     UserResponseDto getUserAuthenticated();
 }

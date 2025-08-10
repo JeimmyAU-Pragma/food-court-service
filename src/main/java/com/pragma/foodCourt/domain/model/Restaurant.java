@@ -2,30 +2,20 @@ package com.pragma.foodcourt.domain.model;
 
 
 public class Restaurant {
-    private Long idRestaurant;
+    private Long id;
     private String name;
     private String nit;
-    private String adress;
+    private String address;
     private String phoneNumber;
     private String urlLogo;
     private Long idOwner;
 
-    public Restaurant(Long idRestaurant, String name, String nit, String adress, String phoneNumber, String urlLogo, Long idOwner) {
-        this.idRestaurant = idRestaurant;
-        this.name = name;
-        this.nit = nit;
-        this.adress = adress;
-        this.phoneNumber = phoneNumber;
-        this.urlLogo = urlLogo;
-        this.idOwner = idOwner;
+    public Long getId() {
+        return id;
     }
 
-    public Long getIdRestaurant() {
-        return idRestaurant;
-    }
-
-    public void setIdRestaurant(Long idRestaurant) {
-        this.idRestaurant = idRestaurant;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -44,12 +34,12 @@ public class Restaurant {
         this.nit = nit;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhoneNumber() {
@@ -76,4 +66,3 @@ public class Restaurant {
         this.idOwner = idOwner;
     }
 }
-

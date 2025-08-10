@@ -24,10 +24,6 @@ public class RestaurantUseCase implements IRestaurantServicePort {
         this.userFeignPort = userFeignPort;
     }
 
-    @Override
-    public boolean isOwner(Long idRestaurant, Long idOwner) {
-        return restaurantPersistencePort.isOwner(idRestaurant, idOwner);
-    }
 
     @Override
     public void deleteRestaurant(Long idRestaurant) {
@@ -37,12 +33,18 @@ public class RestaurantUseCase implements IRestaurantServicePort {
     @Override
     public void saveRestaurant(Restaurant restaurant) {
         UserResponseDto user = userFeignPort.getAuthenticatedUser();
-        if (!ROLE_ADMIN.equals(user.getRol())) {
+
+        String roleName = user != null
+                && user.getRole() != null
+                ? user.getRole().getName()
+                : null;
+
+        if (!ROLE_ADMIN.equalsIgnoreCase(roleName)) {
             throw new DomainException(MESSAGE_ERROR_ADMIN);
         }
 
         UserResponseDto userOwner = userFeignPort.getUserById(restaurant.getIdOwner());
-        if (!userOwner.getRol().equals(ROLE_OWNER)) {
+        if (!userOwner.getRole().getName() .equals(ROLE_OWNER)) {
             throw new DomainException(MESSAGE_ERROR_OWNER);
         }
 
@@ -69,6 +71,6 @@ public class RestaurantUseCase implements IRestaurantServicePort {
 
     @Override
     public Optional<Restaurant> getRestaurantById(Long idRestaurant) {
-        return restaurantPersistencePort.getRestaurantById(idRestaurant);
+        return restaurantPersistencePort.findById(idRestaurant);
     }
 }
