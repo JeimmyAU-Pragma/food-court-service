@@ -1,9 +1,11 @@
 package com.pragma.foodcourt.domain.util;
 
-import lombok.experimental.UtilityClass;
 
-@UtilityClass
 public class DomainConstants {
+
+    private DomainConstants() {
+
+    }
     public static final String ROLE_ADMIN = "ADMINISTRADOR";
     public static final String ROLE_OWNER = "PROPIETARIO";
 
@@ -12,5 +14,14 @@ public class DomainConstants {
     public static final String INVALID_PHONE_NUMBER =  "Teléfono inválido";
     public static final String NIT_INVALID = "NIT debe ser numérico";
     public static  final String NAME_INVALID=   "el nombre no puede ser solo números";
+
+
+
+    public static final String DISH_NAME_REQUIRED = "El nombre del plato es obligatorio.";
+    public static final String DISH_PRICE_INVALID = "El precio debe ser un número entero positivo mayor a 0.";
+    public static final String DISH_DESCRIPTION_REQUIRED = "La descripción del plato es obligatoria.";
+    public static final String DISH_IMAGE_URL_REQUIRED = "La URL de la imagen es obligatoria.";
+    public static final String DISH_CATEGORY_REQUIRED = "La categoría es obligatoria.";
+    public static final String DISH_RESTAURANT_ID_REQUIRED = "El id del restaurante es obligatorio.";
 
 }

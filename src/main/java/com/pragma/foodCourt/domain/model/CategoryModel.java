@@ -10,6 +10,12 @@ public class CategoryModel {
         this.name = name;
         this.description = description;
     }
+    public CategoryModel(Long id) {
+        this.id = id;
+    }
+    public CategoryModel() {
+    }
+
 
     public Long getId() {
         return id;
