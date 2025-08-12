@@ -1,14 +1,10 @@
 package com.pragma.foodcourt.application.mapper;
 
 
-import com.pragma.foodcourt.application.dto.request.DishUpdateRequestDto;
 import com.pragma.foodcourt.application.dto.response.DishResponseDto;
-import com.pragma.foodcourt.domain.command.DishUpdateCommand;
 import com.pragma.foodcourt.domain.model.DishModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-08-12T08:29:35-0500",
+    date = "2025-08-12T11:26:39-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.13.jar, environment: Java 17.0.15 (Microsoft)"
 )
 @Component
@@ -166,15 +166,11 @@ public class IDishEntityMapperImpl implements IDishEntityMapper {
             return null;
         }
 
-        Long id = null;
-        String name = null;
-        String description = null;
+        CategoryModel categoryModel = new CategoryModel();
 
-        id = categoryEntity.getId();
-        name = categoryEntity.getName();
-        description = categoryEntity.getDescription();
-
-        CategoryModel categoryModel = new CategoryModel( id, name, description );
+        categoryModel.setId( categoryEntity.getId() );
+        categoryModel.setName( categoryEntity.getName() );
+        categoryModel.setDescription( categoryEntity.getDescription() );
 
         return categoryModel;
     }
