@@ -10,6 +10,12 @@ public class Restaurant {
     private String urlLogo;
     private Long idOwner;
 
+    public Restaurant(Long id) {
+        this.id = id;
+    }
+    public Restaurant() {
+    }
+
     public Long getId() {
         return id;
     }

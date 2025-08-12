@@ -1,7 +1,9 @@
 package com.pragma.foodcourt.domain.usecase;
 
 import com.pragma.foodcourt.domain.api.IDishServicePort;
+
 import com.pragma.foodcourt.domain.command.DishUpdateCommand;
+
 import com.pragma.foodcourt.domain.exception.DomainException;
 import com.pragma.foodcourt.domain.model.DishModel;
 import com.pragma.foodcourt.domain.model.Restaurant;
@@ -11,7 +13,6 @@ import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
 import java.util.List;
 
 import static com.pragma.foodcourt.domain.util.DomainConstants.*;
-
 
 public class DishUseCase implements IDishServicePort {
 
@@ -34,11 +35,13 @@ public class DishUseCase implements IDishServicePort {
     private void validate(DishModel dishModel) {
 
         if (dishModel.getName() == null || dishModel.getName().isBlank()) {
-            throw new IllegalArgumentException("El nombre del plato es obligatorio.");
+            throw new DomainException(DISH_NAME_REQUIRED);
         }
 
         if (dishModel.getPrice() == null || dishModel.getPrice() <= 0) {
+
             throw new DomainException(DISH_PRICE_POSITIVE);
+
         }
 
         if (dishModel.getDescription() == null || dishModel.getDescription().isBlank()) {
@@ -46,15 +49,15 @@ public class DishUseCase implements IDishServicePort {
         }
 
         if (dishModel.getUrlImage() == null || dishModel.getUrlImage().isBlank()) {
-            throw new IllegalArgumentException("La URL de la imagen es obligatoria.");
+            throw new DomainException(DISH_IMAGE_URL_REQUIRED);
         }
 
         if (dishModel.getCategory().getId() == null) {
-            throw new IllegalArgumentException("La categoría es obligatoria.");
+            throw new DomainException(DISH_CATEGORY_REQUIRED);
         }
 
         if (dishModel.getRestaurant().getId() == null) {
-            throw new IllegalArgumentException("El id del restaurante es obligatorio.");
+            throw new DomainException(DISH_RESTAURANT_ID_REQUIRED);
         }
         /*if (dishModel.getIdOwner() == null) {
             throw new IllegalArgumentException("El id del propietario es obligatorio.");
