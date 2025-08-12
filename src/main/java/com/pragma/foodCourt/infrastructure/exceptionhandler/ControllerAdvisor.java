@@ -35,11 +35,11 @@ public class ControllerAdvisor {
 
     private HttpStatus mapStatusFromDomainMessage(String message) {
         return switch (message) {
-            case OWNER_NOT_ALLOWED -> HttpStatus.FORBIDDEN;   // 403
-            case DISH_NOT_FOUND -> HttpStatus.NOT_FOUND;    // 404
+            case OWNER_NOT_ALLOWED -> HttpStatus.FORBIDDEN;
+            case DISH_NOT_FOUND -> HttpStatus.NOT_FOUND;
             case DISH_PRICE_REQUIRED,
                  DISH_PRICE_POSITIVE,
-                 DISH_DESCRIPTION_REQUIRED -> HttpStatus.BAD_REQUEST; // 400
+                 DISH_DESCRIPTION_REQUIRED -> HttpStatus.BAD_REQUEST;
 
             default -> HttpStatus.BAD_REQUEST;
         };
