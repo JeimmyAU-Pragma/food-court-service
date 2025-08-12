@@ -52,10 +52,11 @@ public class DishRestController {
             @ApiResponse(responseCode = "200", description = "All dishes update"),
             @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
     })
-    @PutMapping("/{dishId}")
-    public ResponseEntity<Void> updateDishes( @PathVariable Long dishId,
-                                              @RequestParam Long ownerId,
-                                              @RequestBody DishUpdateRequestDto request) {
+    @PutMapping("/{idDish}")
+    public ResponseEntity<Void> updateDishes(
+            @PathVariable("idDish") Long dishId,
+            @RequestParam("ownerId") Long ownerId,
+            @RequestBody DishUpdateRequestDto request) {
 
         dishHandler.updateDish(dishId, ownerId, request);
         return ResponseEntity.noContent().build();

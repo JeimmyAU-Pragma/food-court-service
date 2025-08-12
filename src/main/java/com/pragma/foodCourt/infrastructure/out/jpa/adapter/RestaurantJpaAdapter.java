@@ -31,10 +31,13 @@ public class RestaurantJpaAdapter implements IRestaurantPersistencePort {
             }
             return restaurantEntityMapper.toRestaurantList(entityList);
     }
-   /* @Override
-    public boolean isOwner(Long idRestaurant, Long idOwner) {
-        return restaurantRepository.existsByIdRestaurantAndIdOwner(idRestaurant, idOwner);
-    }**/
+
+    @Override
+    public boolean isOwnerOfRestaurant(Long idRestaurant, Long idOwner) {
+        return restaurantRepository.existsByIdAndIdOwner(idRestaurant, idOwner);
+    }
+
+
 
     @Override
     public void deleteRestaurant(Long idRestaurant) {

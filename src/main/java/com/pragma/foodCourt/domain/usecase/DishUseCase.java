@@ -1,10 +1,14 @@
 package com.pragma.foodcourt.domain.usecase;
 
-import com.pragma.foodcourt.application.dto.request.DishUpdateRequestDto;
 import com.pragma.foodcourt.domain.api.IDishServicePort;
+
+import com.pragma.foodcourt.domain.command.DishUpdateCommand;
+
 import com.pragma.foodcourt.domain.exception.DomainException;
 import com.pragma.foodcourt.domain.model.DishModel;
+import com.pragma.foodcourt.domain.model.Restaurant;
 import com.pragma.foodcourt.domain.spi.IDishPersistencePort;
+import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
 
 import java.util.List;
 
@@ -28,14 +32,16 @@ public class DishUseCase implements IDishServicePort {
         dishPersistencePort.saveDish(dishModel);
     }
 
-    private void validate(DishModel dishModel){
+    private void validate(DishModel dishModel) {
 
         if (dishModel.getName() == null || dishModel.getName().isBlank()) {
             throw new DomainException(DISH_NAME_REQUIRED);
         }
 
         if (dishModel.getPrice() == null || dishModel.getPrice() <= 0) {
-            throw new DomainException(DISH_PRICE_INVALID);
+
+            throw new DomainException(DISH_PRICE_POSITIVE);
+
         }
 
         if (dishModel.getDescription() == null || dishModel.getDescription().isBlank()) {
@@ -74,13 +80,30 @@ public class DishUseCase implements IDishServicePort {
     }
 
     @Override
-    public void updateDish(Long dishId, Long ownerId, DishUpdateRequestDto request) {
+    public void updateDish(Long dishId, Long ownerId, DishUpdateCommand dishUpdate) {
         DishModel dish = dishPersistencePort.getDishById(dishId);
+        if (dish == null) throw new DomainException(DISH_NOT_FOUND);
 
-        dish.setPrice(request.getPrice());
-        dish.setDescription(request.getDescription());
+        Restaurant restaurant = dish.getRestaurant();
+        Long restaurantOwnerId = (restaurant != null) ? restaurant.getIdOwner() : null;
+        if (restaurantOwnerId == null || !restaurantOwnerId.equals(ownerId)) {
+            throw new DomainException(OWNER_NOT_ALLOWED);
+        }
+
+        if (dishUpdate.price() != null) {
+            if (dishUpdate.price() <= 0) throw new DomainException(DISH_PRICE_POSITIVE);
+            dish.setPrice(dishUpdate.price());
+        }
+        if (dishUpdate.description() != null) {
+            dish.setDescription(dishUpdate.description());
+        }
+
+        if (dishUpdate.active() != null) {
+            dish.setActive(dishUpdate.active());
+        }
 
         dishPersistencePort.updateDish(dish);
+
     }
 
 }

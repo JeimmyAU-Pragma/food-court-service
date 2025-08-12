@@ -13,8 +13,7 @@ public interface IDishHandler {
 
     List<DishResponseDto> getAllDishes();
 
-   // DishResponseDto getDishById(Long dishId);
-
     void updateDish(Long dishId,Long ownerId, DishUpdateRequestDto request);
 
+    //DishResponseDto updateDishAndReturn(Long dishId, Long ownerId, DishUpdateRequestDto request);
 }

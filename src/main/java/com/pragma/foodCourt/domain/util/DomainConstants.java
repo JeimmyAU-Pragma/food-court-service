@@ -6,6 +6,7 @@ public class DomainConstants {
     private DomainConstants() {
 
     }
+
     public static final String ROLE_ADMIN = "ADMINISTRADOR";
     public static final String ROLE_OWNER = "PROPIETARIO";
 
@@ -17,11 +18,18 @@ public class DomainConstants {
 
 
 
+    public static final String DISH_NOT_FOUND = "El plato no existe.";
+    public static final String OWNER_NOT_ALLOWED = "Solo el propietario del restaurante puede actualizar el plato.";
+    public static final String DISH_PRICE_REQUIRED = "El precio es obligatorio.";
+    public static final String DISH_PRICE_POSITIVE = "El precio debe ser un entero positivo mayor a 0.";
+    public static final String DISH_DESCRIPTION_REQUIRED = "La descripción es obligatoria.";
+
     public static final String DISH_NAME_REQUIRED = "El nombre del plato es obligatorio.";
     public static final String DISH_PRICE_INVALID = "El precio debe ser un número entero positivo mayor a 0.";
     public static final String DISH_DESCRIPTION_REQUIRED = "La descripción del plato es obligatoria.";
     public static final String DISH_IMAGE_URL_REQUIRED = "La URL de la imagen es obligatoria.";
     public static final String DISH_CATEGORY_REQUIRED = "La categoría es obligatoria.";
     public static final String DISH_RESTAURANT_ID_REQUIRED = "El id del restaurante es obligatorio.";
+
 
 }
