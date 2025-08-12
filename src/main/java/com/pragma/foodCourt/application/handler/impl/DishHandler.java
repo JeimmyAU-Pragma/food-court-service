@@ -7,6 +7,7 @@ import com.pragma.foodcourt.application.dto.response.DishResponseDto;
 import com.pragma.foodcourt.application.handler.IDishHandler;
 import com.pragma.foodcourt.application.mapper.IDishRequestMapper;
 import com.pragma.foodcourt.application.mapper.IDishResponseMapper;
+import com.pragma.foodcourt.application.mapper.IDishUpdateCommandMapper;
 import com.pragma.foodcourt.domain.api.IDishServicePort;
 import com.pragma.foodcourt.domain.model.DishModel;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class DishHandler implements IDishHandler {
     private final IDishServicePort dishServicePort;
     private final IDishRequestMapper dishRequestMapper;
     private final IDishResponseMapper dishResponseMapper;
+    private final IDishUpdateCommandMapper dishUpdateCommandMapper;
 
 
 
@@ -40,7 +42,7 @@ public class DishHandler implements IDishHandler {
 
     @Override
     public void updateDish(Long dishId, Long ownerId, DishUpdateRequestDto request) {
-        dishServicePort.updateDish(dishId, ownerId, request);
+        dishServicePort.updateDish(dishId, ownerId, dishUpdateCommandMapper.toCommand(request));
     }
 
 

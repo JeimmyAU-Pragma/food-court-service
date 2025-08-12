@@ -1,7 +1,9 @@
 package com.pragma.foodcourt.application.mapper;
 
 
+import com.pragma.foodcourt.application.dto.request.DishUpdateRequestDto;
 import com.pragma.foodcourt.application.dto.response.DishResponseDto;
+import com.pragma.foodcourt.domain.command.DishUpdateCommand;
 import com.pragma.foodcourt.domain.model.DishModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -20,4 +22,5 @@ public interface IDishResponseMapper {
     DishResponseDto toResponse(DishModel dishModel);
 
     List<DishResponseDto> toResponseList(List<DishModel> dishesModelList);
+
 }

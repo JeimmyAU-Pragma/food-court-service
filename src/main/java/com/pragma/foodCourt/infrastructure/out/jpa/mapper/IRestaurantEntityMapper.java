@@ -15,6 +15,6 @@ import java.util.List;
 public interface IRestaurantEntityMapper {
 
     RestaurantEntity toEntity(Restaurant restaurant);
-    Restaurant toRestaurant(RestaurantEntity objectEntity);
+    Restaurant toRestaurant(RestaurantEntity restaurantEntity);
     List<Restaurant> toRestaurantList(List<RestaurantEntity> userEntityList);
 }
