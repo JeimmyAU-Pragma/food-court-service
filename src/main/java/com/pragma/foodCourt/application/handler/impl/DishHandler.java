@@ -10,7 +10,14 @@ import com.pragma.foodcourt.application.mapper.IDishResponseMapper;
 import com.pragma.foodcourt.application.mapper.IDishUpdateCommandMapper;
 import com.pragma.foodcourt.domain.api.IDishServicePort;
 import com.pragma.foodcourt.domain.model.DishModel;
+import com.pragma.foodcourt.domain.util.PageResult;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+<<<<<<< Updated upstream
+=======
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+>>>>>>> Stashed changes
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +34,6 @@ public class DishHandler implements IDishHandler {
     private final IDishUpdateCommandMapper dishUpdateCommandMapper;
 
 
-
     @Override
     public void saveDish(DishRequestDto dishRequestDto) {
         DishModel dishModel = dishRequestMapper.toDish(dishRequestDto);
@@ -38,6 +44,24 @@ public class DishHandler implements IDishHandler {
     @Override
     public List<DishResponseDto> getAllDishes() {
         return dishResponseMapper.toResponseList(dishServicePort.getAllDishes());
+    }
+
+    @Override
+    public Page<DishResponseDto> listDishes(Long restaurantId, int page, int size, Long categoryId) {
+<<<<<<< Updated upstream
+        return null;
+=======
+        PageResult<DishModel> result = dishServicePort.listByRestaurant(restaurantId, page, size, categoryId);
+
+        List<DishResponseDto> items =
+                dishResponseMapper.toResponseList(result.items());
+
+        return new PageImpl<>(
+                items,
+                PageRequest.of(result.page(), result.size()),
+                result.total()
+        );
+>>>>>>> Stashed changes
     }
 
     @Override

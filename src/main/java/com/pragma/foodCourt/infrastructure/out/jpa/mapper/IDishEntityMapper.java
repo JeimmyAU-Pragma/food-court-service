@@ -21,5 +21,6 @@ public interface IDishEntityMapper {
     DishModel toDish(DishEntity dishEntity);
     List<DishModel> toDishList(List<DishEntity> userEntityList);
 
+
     void updateEntityFromModel(DishModel source, @MappingTarget DishEntity target);
 }
