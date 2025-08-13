@@ -6,11 +6,11 @@ import com.pragma.foodcourt.domain.exception.DomainException;
 import com.pragma.foodcourt.domain.model.Restaurant;
 import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
 import com.pragma.foodcourt.domain.spi.IUserFeignPort;
-import org.springframework.data.domain.Page;
+import com.pragma.foodcourt.domain.util.PageResult;
 
 import java.util.List;
 import java.util.Optional;
-// Constants
+
 import static com.pragma.foodcourt.domain.util.DomainConstants.*;
 
 
@@ -71,8 +71,8 @@ public class RestaurantUseCase implements IRestaurantServicePort {
     }
 
     @Override
-    public Page<Restaurant> getRestaurants(int page, int size) {
-        return restaurantPersistencePort.findAllPaged(page, size, "name", true);
+    public PageResult<Restaurant> getRestaurants(int page, int size) {
+        return restaurantPersistencePort.findAllRestaurantPaged(page, size, "name", true);
     }
 
     @Override

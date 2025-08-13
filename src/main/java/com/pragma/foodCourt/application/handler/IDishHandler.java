@@ -4,6 +4,7 @@ package com.pragma.foodcourt.application.handler;
 import com.pragma.foodcourt.application.dto.request.DishRequestDto;
 import com.pragma.foodcourt.application.dto.request.DishUpdateRequestDto;
 import com.pragma.foodcourt.application.dto.response.DishResponseDto;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -13,7 +14,8 @@ public interface IDishHandler {
 
     List<DishResponseDto> getAllDishes();
 
-    void updateDish(Long dishId,Long ownerId, DishUpdateRequestDto request);
+    Page<DishResponseDto> listDishes(Long restaurantId, int page, int size, Long categoryId);
 
-    //DishResponseDto updateDishAndReturn(Long dishId, Long ownerId, DishUpdateRequestDto request);
+    void updateDish(Long dishId, Long ownerId, DishUpdateRequestDto request);
+
 }

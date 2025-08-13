@@ -173,7 +173,7 @@ class DishUseCaseTest {
         req.setPrice(2500L);
         req.setDescription("new");
 
-        useCase.updateDish(1L, 99L, req); // ownerId ignored in current use case
+        useCase.updateDish(1L, 99L, req);
 
         assertEquals(2500L, stored.getPrice());
         assertEquals("new", stored.getDescription());

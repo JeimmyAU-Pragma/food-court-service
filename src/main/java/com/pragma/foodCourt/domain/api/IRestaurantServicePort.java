@@ -1,7 +1,7 @@
 package com.pragma.foodcourt.domain.api;
 
 import com.pragma.foodcourt.domain.model.Restaurant;
-import org.springframework.data.domain.Page;
+import com.pragma.foodcourt.domain.util.PageResult;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +12,7 @@ public interface IRestaurantServicePort {
 
     List<Restaurant> getAllRestaurants();
 
-    Page<Restaurant> getRestaurants(int page, int size);
-
+    PageResult<Restaurant> getRestaurants(int page, int size);
 
     Optional<Restaurant> getRestaurantById(Long id);
 
