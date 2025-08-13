@@ -11,6 +11,7 @@ import com.pragma.foodcourt.application.mapper.IDishUpdateCommandMapper;
 import com.pragma.foodcourt.domain.api.IDishServicePort;
 import com.pragma.foodcourt.domain.model.DishModel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,6 +39,11 @@ public class DishHandler implements IDishHandler {
     @Override
     public List<DishResponseDto> getAllDishes() {
         return dishResponseMapper.toResponseList(dishServicePort.getAllDishes());
+    }
+
+    @Override
+    public Page<DishResponseDto> listDishes(Long restaurantId, int page, int size, Long categoryId) {
+        return null;
     }
 
     @Override
