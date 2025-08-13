@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-08-12T11:26:39-0500",
+    date = "2025-08-12T21:29:31-0500",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.13.jar, environment: Java 17.0.15 (Microsoft)"
 )
 @Component
@@ -36,14 +36,28 @@ public class IRestaurantResponseMapperImpl implements IRestaurantResponseMapper 
     }
 
     @Override
-    public List<RestaurantResponseDto> toResponseList(List<Restaurant> restaurantModelList) {
-        if ( restaurantModelList == null ) {
+    public List<RestaurantResponseDto> toResponseList(List<Restaurant> restaurantsModelList) {
+        if ( restaurantsModelList == null ) {
             return null;
         }
 
-        List<RestaurantResponseDto> list = new ArrayList<RestaurantResponseDto>( restaurantModelList.size() );
-        for ( Restaurant restaurant : restaurantModelList ) {
+        List<RestaurantResponseDto> list = new ArrayList<RestaurantResponseDto>( restaurantsModelList.size() );
+        for ( Restaurant restaurant : restaurantsModelList ) {
             list.add( toResponse( restaurant ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<RestaurantListItemDto> toListItems(List<Restaurant> restaurants) {
+        if ( restaurants == null ) {
+            return null;
+        }
+
+        List<RestaurantListItemDto> list = new ArrayList<RestaurantListItemDto>( restaurants.size() );
+        for ( Restaurant restaurant : restaurants ) {
+            list.add( toListItem( restaurant ) );
         }
 
         return list;

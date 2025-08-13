@@ -8,9 +8,12 @@ import com.pragma.foodcourt.application.mapper.IRestaurantRequestMapper;
 import com.pragma.foodcourt.application.mapper.IRestaurantResponseMapper;
 import com.pragma.foodcourt.domain.api.IRestaurantServicePort;
 import com.pragma.foodcourt.domain.model.Restaurant;
+import com.pragma.foodcourt.domain.util.PageResult;
 import com.pragma.foodcourt.infrastructure.exception.NoDataFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,10 +56,20 @@ public class RestaurantHandler implements IRestaurantHandler {
         }
         restaurantServicePort.deleteRestaurant(idRestaurant);
     }
+
     @Override
     public Page<RestaurantListItemDto> listRestaurants(int page, int size) {
-        Page<Restaurant> paged = restaurantServicePort.getRestaurants(page, size);
-        return paged.map(restaurantResponseMapper::toListItem);
+        PageResult<Restaurant> result = restaurantServicePort.getRestaurants(page, size);
+
+        List<RestaurantListItemDto> items =
+                restaurantResponseMapper.toListItems(result.items());
+
+        return new PageImpl<>(
+                items,
+                PageRequest.of(result.page(), result.size()),
+                result.total()
+        );
     }
+
 }
 
