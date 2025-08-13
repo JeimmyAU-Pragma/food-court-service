@@ -2,6 +2,7 @@ package com.pragma.foodcourt.domain.spi;
 
 
 import com.pragma.foodcourt.domain.model.Restaurant;
+import com.pragma.foodcourt.domain.util.PageResult;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -13,8 +14,8 @@ public interface IRestaurantPersistencePort {
 
     List<Restaurant> getAllRestaurants();
 
-    Page<Restaurant> findAllPaged(int page, int size, String sortBy, boolean asc);
-
+    PageResult<Restaurant> findAllRestaurantPaged(int page, int size, String sortBy, boolean asc);
+   // PageResult<Restaurant> findAllRestaurants(int page, int size);
 
     boolean isOwnerOfRestaurant(Long idRestaurant, Long idOwner);
 

@@ -2,6 +2,7 @@ package com.pragma.foodcourt.infrastructure.out.jpa.adapter;
 
 import com.pragma.foodcourt.domain.model.Restaurant;
 import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
+import com.pragma.foodcourt.domain.util.PageResult;
 import com.pragma.foodcourt.infrastructure.exception.NoDataFoundException;
 import com.pragma.foodcourt.infrastructure.out.jpa.entity.RestaurantEntity;
 import com.pragma.foodcourt.infrastructure.out.jpa.mapper.IRestaurantEntityMapper;
@@ -29,18 +30,36 @@ public class RestaurantJpaAdapter implements IRestaurantPersistencePort {
 
     @Override
     public List<Restaurant> getAllRestaurants() {
-            List<RestaurantEntity> entityList = restaurantRepository.findAll();
-            if (entityList.isEmpty()) {
-                throw new NoDataFoundException();
-            }
-            return restaurantEntityMapper.toRestaurantList(entityList);
+        List<RestaurantEntity> entityList = restaurantRepository.findAll();
+        if (entityList.isEmpty()) {
+            throw new NoDataFoundException();
+        }
+        return restaurantEntityMapper.toRestaurantList(entityList);
+    }
+
+    @Override
+    public PageResult<Restaurant> findAllRestaurantPaged(int page, int size, String sortBy, boolean asc) {
+        Sort sort;
+        if (asc) sort = Sort.by(sortBy).ascending();
+        else sort = Sort.by(sortBy).descending();
+
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        Page<RestaurantEntity> result = restaurantRepository.findAll(pageable);
+
+        List<Restaurant> items = restaurantEntityMapper.toRestaurantList(result.getContent());
+        return new PageResult<>(
+                items,
+                result.getNumber(),
+                result.getSize(),
+                result.getTotalElements()
+        );
     }
 
     @Override
     public boolean isOwnerOfRestaurant(Long idRestaurant, Long idOwner) {
         return restaurantRepository.existsByIdAndIdOwner(idRestaurant, idOwner);
     }
-
 
 
     @Override
@@ -53,11 +72,4 @@ public class RestaurantJpaAdapter implements IRestaurantPersistencePort {
         return restaurantRepository.findById(id).map(restaurantEntityMapper::toRestaurant);
     }
 
-    @Override
-    public Page<Restaurant> findAllPaged(int page, int size, String sortBy, boolean asc) {
-        Sort sort = asc ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
-        Pageable pageable = PageRequest.of(page, size, sort);
-        Page<RestaurantEntity> entities = restaurantRepository.findAll(pageable);
-        return entities.map(restaurantEntityMapper::toRestaurant);
-    }
 }

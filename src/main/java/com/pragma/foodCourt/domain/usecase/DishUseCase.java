@@ -8,7 +8,7 @@ import com.pragma.foodcourt.domain.exception.DomainException;
 import com.pragma.foodcourt.domain.model.DishModel;
 import com.pragma.foodcourt.domain.model.Restaurant;
 import com.pragma.foodcourt.domain.spi.IDishPersistencePort;
-import com.pragma.foodcourt.domain.spi.IRestaurantPersistencePort;
+import com.pragma.foodcourt.domain.util.PageResult;
 
 import java.util.List;
 
@@ -59,20 +59,8 @@ public class DishUseCase implements IDishServicePort {
         if (dishModel.getRestaurant().getId() == null) {
             throw new DomainException(DISH_RESTAURANT_ID_REQUIRED);
         }
-        /*if (dishModel.getIdOwner() == null) {
-            throw new IllegalArgumentException("El id del propietario es obligatorio.");
-        }
-        // la union entre los 3
-        boolean isOwner = restaurantFeignPort.isOwner(dishModel.getIdRestaurant(), dishModel.getIdOwner());
-        if (!isOwner) {
-            throw new DomainException("El usuario no es el propietario del restaurante");
-        }*/
     }
 
-    @Override
-    public List<DishModel> getAllDishes() {
-        return dishPersistencePort.getAllDishes();
-    }
 
     @Override
     public DishModel getDishById(Long dishId) {
@@ -104,6 +92,18 @@ public class DishUseCase implements IDishServicePort {
 
         dishPersistencePort.updateDish(dish);
 
+    }
+    @Override
+    public PageResult<DishModel> listByRestaurant(Long restaurantId, int page, int size, Long categoryId) {
+        return dishPersistencePort.listByRestaurant(restaurantId, page, size, categoryId);
+    }
+    /*@Override
+    public PageResult<DishModel> getDishes(int page, int size) {
+        return dishPersistencePort.findAllDishesPaged(page, size, "name", true);
+    }*/
+    @Override
+    public List<DishModel> getAllDishes() {
+        return dishPersistencePort.getAllDishes();
     }
 
 }
