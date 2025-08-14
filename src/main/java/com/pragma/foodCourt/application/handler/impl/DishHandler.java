@@ -13,11 +13,10 @@ import com.pragma.foodcourt.domain.model.DishModel;
 import com.pragma.foodcourt.domain.util.PageResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-<<<<<<< Updated upstream
-=======
+
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
->>>>>>> Stashed changes
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,9 +47,6 @@ public class DishHandler implements IDishHandler {
 
     @Override
     public Page<DishResponseDto> listDishes(Long restaurantId, int page, int size, Long categoryId) {
-<<<<<<< Updated upstream
-        return null;
-=======
         PageResult<DishModel> result = dishServicePort.listByRestaurant(restaurantId, page, size, categoryId);
 
         List<DishResponseDto> items =
@@ -61,7 +57,7 @@ public class DishHandler implements IDishHandler {
                 PageRequest.of(result.page(), result.size()),
                 result.total()
         );
->>>>>>> Stashed changes
+
     }
 
     @Override
